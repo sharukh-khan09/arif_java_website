@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #eefff1;
     margin: 0;
     padding: 0;
 }
@@ -8,14 +8,16 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px; /* Add some padding for smaller screens */
+    padding: 0 15px;
 }
 
 header {
-    background-color: #333;
+    background-color: #40bf59;
     color: white;
-    padding: 1em 0;
+    padding: 0.5em 0; /* Reduced padding */
     text-align: center;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     position: relative;
 }
 
@@ -36,42 +38,58 @@ header a {
 
 .sidebar {
     width: 20%;
-    background-color: #005f73;
-    color: white;
+    background-color: #eefff1;
+    color: black;
     padding: 1em;
     box-sizing: border-box;
-    flex-shrink: 0; /* Prevents the sidebar from shrinking */
+    flex-shrink: 0;
+    height: 100vh; /* Set the height to 100% of the viewport */
+    overflow-y: auto; /* Enable vertical scroll */
+    position: sticky; /* Make it stick to the viewport as you scroll */
+    top: 0; /* Stick it to the top */
 }
 
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
+	
 }
 
 .sidebar ul ul {
     padding-left: 1em;
+	
+	
 }
 
 .sidebar li {
     margin-bottom: 1em;
+	
+	
 }
 
 .sidebar a {
-    color: white;
+    color: black;
     text-decoration: none;
+}
+
+h1 {
+    color: black;
 }
 
 .expand-btn {
     cursor: pointer;
     font-size: 1.1em;
+    color: #035384;
 }
 
 .expand-btn.active::before {
     content: '- ';
+    color: #035384;
 }
 
 .expand-btn::before {
     content: '+ ';
+    color: #035384;
 }
 
 .nested {
@@ -99,18 +117,18 @@ header a {
 }
 
 .question-btn {
-    background-color: #005f73;
-    color: white;
+    background-color: #bfc7cd;
+    color: black;
     padding: 1em;
     cursor: pointer;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    position: relative; /* Keep for absolute positioning of arrow */
+    position: relative;
 }
 
 .question-btn .arrow {
-    margin-right: 0.75em; /* Space between arrow and text */
+    margin-right: 0.75em;
     transition: transform 0.3s ease;
 }
 
@@ -119,7 +137,7 @@ header a {
 }
 
 .question-btn.active {
-    background-color: #0a9396;
+    background-color: #d9e3e9;
 }
 
 .answer {
@@ -128,6 +146,22 @@ header a {
     border-radius: 5px;
     margin-top: 0.5em;
     display: none;
+}
+
+/* Footer styles */
+footer {
+    background-color: black;
+    color: white;
+    padding: 2em 0; /* Double the header's padding */
+    text-align: center;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2em; /* Adjust as needed */
 }
 
 /* Responsive Styles */
@@ -155,11 +189,11 @@ header a {
     }
 
     .question-btn {
-        padding-left: 2em; /* Ensure padding for the arrow */
+        padding-left: 2em;
     }
 
     .question-btn .arrow {
-        margin-right: 0.5em; /* Adjust spacing for smaller screens */
+        margin-right: 0.5em;
     }
 }
 
@@ -187,7 +221,7 @@ header a {
     }
 
     .question-btn .arrow {
-        margin-right: 0.3em; /* Further adjust for very small screens */
+        margin-right: 0.3em;
     }
 
     .answer {
