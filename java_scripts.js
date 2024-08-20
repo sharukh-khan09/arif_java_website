@@ -46,7 +46,7 @@ function generateQuestionsHTML(topic) {
             <ul class="questions-list">
                 ${inheritanceQuestions.map((q, index) => `
                     <li>
-                        <div class="question-btn">${index + 1}. ${q.question}</div>
+                        <div class="question-btn"><span class="arrow">&#9656;</span> ${index + 1}. ${q.question}</div>
                         <div class="answer">${q.answer}</div>
                     </li>
                 `).join('')}
@@ -58,7 +58,7 @@ function generateQuestionsHTML(topic) {
             <ul class="questions-list">
                 ${abstractionQuestions.map((q, index) => `
                     <li>
-                        <div class="question-btn">${index + 1}. ${q.question}</div>
+                        <div class="question-btn"><span class="arrow">&#9656;</span> ${index + 1}. ${q.question}</div>
                         <div class="answer">${q.answer}</div>
                     </li>
                 `).join('')}
