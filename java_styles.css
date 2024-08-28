@@ -1,70 +1,65 @@
+/* General body styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #eefff1;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* Main container settings */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0;
+    min-height: 100vh; /* Ensure container takes at least full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
+/* Header styling */
 header {
     background-color: #40bf59;
     color: white;
-    padding: 0.5em 0; /* Reduced padding */
+    padding: 0.5em 0;
     text-align: center;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    width: 100%;
     position: relative;
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
-header a {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
+/* Content layout */
 .content {
     display: flex;
-    flex-wrap: nowrap;
+    flex: 1;
+    overflow: hidden; /* Prevent the entire content div from scrolling */
 }
 
+/* Sidebar styling */
 .sidebar {
     width: 20%;
     background-color: #eefff1;
     color: black;
     padding: 1em;
     box-sizing: border-box;
-    flex-shrink: 0;
-    height: 100vh; /* Set the height to 100% of the viewport */
-    overflow-y: auto; /* Enable vertical scroll */
-    position: sticky; /* Make it stick to the viewport as you scroll */
-    top: 0; /* Stick it to the top */
+    height: calc(100vh - 100px); /* Adjust height to account for header and footer */
+    overflow-y: auto; /* Enable scrolling for sidebar */
+    position: sticky;
+    top: 0;
 }
 
+/* Sidebar lists and items */
 .sidebar ul {
     list-style-type: none;
     padding-left: 0;
-	
 }
 
 .sidebar ul ul {
     padding-left: 1em;
-	
-	
 }
 
 .sidebar li {
     margin-bottom: 1em;
-	
-	
 }
 
 .sidebar a {
@@ -72,10 +67,7 @@ header a {
     text-decoration: none;
 }
 
-h1 {
-    color: black;
-}
-
+/* Expandable button styling */
 .expand-btn {
     cursor: pointer;
     font-size: 1.1em;
@@ -100,13 +92,17 @@ h1 {
     margin-bottom: 0.5em;
 }
 
+/* Main content area styling */
 .main-content {
     flex-grow: 1;
     padding: 2em;
     background-color: #ffffff;
     box-sizing: border-box;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    height: calc(100vh - 100px); /* Adjust height to account for header and footer */
 }
 
+/* Question and Answer Styles */
 .questions-list {
     list-style-type: none;
     padding-left: 0;
@@ -148,52 +144,42 @@ h1 {
     display: none;
 }
 
-/* Footer styles */
+/* Footer styling */
 footer {
     background-color: black;
     color: white;
-    padding: 2em 0; /* Double the header's padding */
+    padding: 2em 0;
     text-align: center;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    width: 100%;
     position: relative;
+    margin-top: auto; /* Push to the bottom of the container */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
 footer p {
     margin: 0;
-    font-size: 1.2em; /* Adjust as needed */
+    font-size: 1.2em;
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .content {
         flex-direction: column;
+        overflow: hidden; /* Prevent the entire content div from scrolling */
     }
 
     .sidebar {
         width: 100%;
-        margin-bottom: 1em;
+        height: auto; /* Allow sidebar to adjust height based on content */
+        min-width: 100%; /* Full width on mobile */
+        overflow-y: auto; /* Enable scrolling inside sidebar */
     }
 
     .main-content {
+        width: 100%;
         padding: 1em;
-    }
-
-    header a {
-        font-size: 1em;
-    }
-
-    .question-btn, .answer {
-        padding: 0.75em;
-        font-size: 1em;
-    }
-
-    .question-btn {
-        padding-left: 2em;
-    }
-
-    .question-btn .arrow {
-        margin-right: 0.5em;
+        overflow-y: auto; /* Ensure main content scrolls if needed */
+        height: auto; /* Allow height to adjust based on content */
     }
 }
 
@@ -209,10 +195,14 @@ footer p {
 
     .sidebar {
         padding: 0.5em;
+        height: auto;
+        overflow-y: auto; /* Ensure sidebar scrolls */
     }
 
     .main-content {
         padding: 1em;
+        overflow-y: auto; /* Ensure main content scrolls if needed */
+        height: auto; /* Allow height to adjust based on content */
     }
 
     .question-btn {
